@@ -5,11 +5,11 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-        <package name="default" namespace="/" extends="struts-default">
-                <action name="hello">
-                        <result>
-                                /index.html
-                        </result>
-                </action>
-        </package>
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="hello">
+            <result>
+                /index.html
+            </result>
+        </action>
+    </package>
 </struts>
