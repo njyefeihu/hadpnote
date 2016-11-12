@@ -2,46 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
-    <style type="text/css">
-        #texterror {
-            color: red;
-            display: block;
-            /*margin: auto;*/
-            margin-left: 25px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        #textcommd {
-            color: blue;
-            display: block;
-            /*margin: auto;*/
-            margin-left: 25px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        #pic {
-            /*display: block;*/
-            margin-left: 25px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        #nav {
-            width: 30px;
-            height: 30px;
-            /*border: 1px solid #D4CD49;*/
-            position: fixed;
-            right: 0;
-            top: 80%;
-        }
-    </style>
+    <title>Git常见问题</title>
+    <link href="../css/html-style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <h1>Git常见问题</h1>
-<hr style="border: 1px dotted #026">
+<hr id="hr1">
 <div id="nav"><a href="../../index.html"><img src="../img/back.png"></a></div>
 <div>
     1、第一次上传代码到github时候报如下错误：<br>
@@ -50,7 +16,7 @@
     Can't finish GitHub sharing process
     Successfully created project 'hadpnote' on GitHub, but initial commit failed: *** Please tell me who you are. Run git config --global user.email "you@example.com" git config --global user.name "Your Name" to set your account's default identity. Omit --global to set the identity only in this repository. fatal: empty ident name (for (null)>) not allowed during executing git -c core.quotepath=false commit -m "Initial commit" </textarea><br>
     如下图所示：<br>
-    <img id="pic" src="../img/2016-11-11_225230.png"><br>
+    <img class="pic" src="../img/2016-11-11_225230.png"><br>
 
     处理方法：<br>
     <label for="textcommd">进入git安装目录，执行git-cmd.exe，用命令设定user.email和user.name即可：</label>
@@ -58,7 +24,7 @@
 git config --global user.email "你的email地址"
 git config --global user.name "你的name"</textarea>
     如下图所示：<br>
-    <img id="pic" src="../img/2016-11-11_235553.png"><br>
+    <img class="pic" src="../img/2016-11-11_235553.png"><br>
 </div>
 
 
