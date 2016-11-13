@@ -31,6 +31,7 @@
       <sourceFolder url="file://$MODULE_DIR$/web/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/web/resources/img" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/web/resources/statichtml" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/web/resources/css" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

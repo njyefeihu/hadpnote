@@ -1,5 +1,12 @@
+#hr2{
+    border:none;
+    border-top: 2px dotted deepskyblue;
+}
+
 #hr1{
-    border: 1px dotted #026;
+    height:3px;
+    border: none;
+    border-top: 5px ridge red;
 }
 
 #texterror {
@@ -11,7 +18,7 @@
     margin-bottom: 10px;
 }
 
-#textcommd {
+.textcommd {
     color: blue;
     display: block;
     /*margin: auto;*/

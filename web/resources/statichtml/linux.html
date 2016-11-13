@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Linux常用配置</title>
+    <link href="../css/html-style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Linux常用配置</h1>
+<hr id="hr1">
+<!--添加返回按钮-->
+<div id="nav">
+    <a href="centos.html">
+        <img src="../img/back.png"><br>
+    </a>
+    <hr>
+    <a href="../../index.html">
+        <img src="../img/iconquit.png">
+    </a>
+</div>
+<!--正文-->
+<a name="adduser">
+<h2>一、linux配置Hadoop用户</h2>
+<label for="textcommd0"></label>
+<textarea id="textcommd0" class="textcommd" rows="4" cols="150">
+    su #root用户登录
+    useradd -m hadoop -s /bin/bash  #创建hadoop用户，不用创建user's home (-m)
+    passwd hadoop  #为hadoop创建密码
+</textarea>
+如下图所示：<br>
+    <img class="pic" src="../img/2016-11-12_215758.png"><br>
+</a>
+<hr id="hr2">
+<a name="addmanageauthor">
+<h2>二、为hadoop添加管理员权限</h2>
+权限管理用到sudo命令，centos的sudo命令详细解释可以使用info sudo 命令查看，也可看<a href="http://www.centoscn.com/CentOS/help/2014/0408/2741.html">这里</a><br>
+    <label for="textcommd1">
+        sudo的配置文件是/etc/sudoers，可以用vi编译器，为了防止语法错误，建议带上语法检测，即用visudo，如下：
+    </label>
+    <textarea id="textcommd1" class="textcommd" rows="4" cols="150">
+        visudo  #用vi编辑sudo配置文件，带上语法检测
+        下面是为hadoop用户配置管理权限添加的内容，这里赋予hadoop所有权限
+        ##Allow hadoop to run any commands anywhere  #注释语句
+        hadoop ALL=(ALL) ALL   #赋予权限语句，中间的空白是tab
+    </textarea>
+    实际操作如下图所示：<br>
+    <img class="pic" src="../img/2016-11-12_223653.png"><br>
+    <label for="textcommd2">赋予权限后可以用以下命令查看hadoop的权限</label>
+    <textarea id="textcommd2" class="textcommd" rows="4" cols="150">
+        su hadoop #切换到hadoop用户下
+        sudo -l    #查看hadoop用户拥有的特殊权限
+    </textarea>
+    如下图所示：<br>
+    <img class="pic" src="../img/2016-11-12_232701.png"><br>
+</a>
+<hr id="hr2">
+<a name="sshconfig">
+    <h2>三、SSH配置</h2>
+    <label for="textcommd3">
+        1、检查SSH是否安装
+    </label>
+    <textarea id="textcommd3" class="textcommd" rows="1" cols="150">
+        rpm -qa|grep ssh  #检查ssh是否安装
+    </textarea>
+    出现下图类似结果则说明ssh已经安装：<br>
+    <img class="pic" src="../img/2016-11-12_234836.png"><br>
+
+    <label for="textcommd4">
+        2、为了方便部署，配置SSH为无密码登录<br>
+        首先，生成key文件ssh-keygen -t rsa，
+        按提示先yes然后一直回车，就会生成/root/.ssh/id_rsa.pub文件，
+        用scp把id_rsa.pub文件拷贝到另外一台需要访问的服务器，示例如下：<br>
+        scp /root/.ssh/id_rsa.pub 192.168.1.2:~/.ssh/<br>
+        ssh 192.168.1.2<br>
+        cat .ssh/id_rsa.pub >> .ssh/authorized_keys<br>
+        cat .ssh/id_rsa.pub >> .ssh/authorized_keys2<br>
+        这样配置完scp或者ssh就可以不用输入用户名和密码了
+    </label>
+    <textarea id="textcommd4" class="textcommd" rows="7" cols="150">
+        ssh localhost #用ssh登录到本机
+        exit          #退出ssh登录
+        cd ~/.ssh
+        ssh-keygen -t rsa  #生成密钥文件
+        cat id_rsa.pub >> authorized_keys  #加入授权
+        chmod 600 ./authorized_keys    #赋予权限
+    </textarea>
+    操作界面如下：<br>
+    <img class="pic" src="../img/2016-11-13_001358.png"><br>
+
+    可以用ssh localhost登录验证是否需要输入密码。
+
+
+</a>
+</body>
+</html>
